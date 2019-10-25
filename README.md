@@ -16,8 +16,8 @@ A list of research questions you would like to address during the project.
 # Dataset
 List the dataset(s) you want to use, and some ideas on how do you expect to get, manage, process and enrich it/them. Show us you've read the docs and some examples, and you've a clear idea on what to expect. Discuss data size and format if relevant.
 
-* Nights spent at tourist accommodation establishments - monthly data (https://ec.europa.eu/eurostat/estat-navtree-portlet-prod/BulkDownloadListing?file=data/tour_occ_nim.tsv.gz)
-* Purchasing power parities (PPPs), price level indices and real expenditures for ESA 2010 aggregates (https://ec.europa.eu/eurostat/estat-navtree-portlet-prod/BulkDownloadListing?file=data/prc_ppp_ind.tsv.gz)
+* [Nights spent at tourist accommodation establishments - monthly data] (https://ec.europa.eu/eurostat/estat-navtree-portlet-prod/BulkDownloadListing?file=data/tour_occ_nim.tsv.gz)
+* [Purchasing power parities (PPPs), price level indices and real expenditures for ESA 2010 aggregates] (https://ec.europa.eu/eurostat/estat-navtree-portlet-prod/BulkDownloadListing?file=data/prc_ppp_ind.tsv.gz)
 
 
 # A list of internal milestones up until project milestone 2
