@@ -1,4 +1,4 @@
-# Tourism Trend
+# Tourism Trend in European countries
 
 # Abstract
 A 150 word description of the project idea, goals, dataset used. What story you would like to tell and why? What's the motivation behind your project?
