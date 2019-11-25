@@ -1,0 +1,4 @@
+Nights spent at tourist accommodation establishments - monthly data (tour_occ_nim)
+Nights spent by non-residents at tourist accommodation establishments - 1990-2011 - world geographical breakdown - monthly data (tour_occ_ninrmw)
+Net occupancy rate of bed-places and bedrooms in hotels and similar accommodation (NACE Rev. 2, I, 55.1) - monthly data (tour_occ_mnor)
+Employed persons by full-time/part-time activity and Nace Rev. 2 activity (tour_lfsq1r2)
