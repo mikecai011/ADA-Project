@@ -12,11 +12,12 @@ def string_encoding_to_datetime(value):
     match = re.fullmatch(r"\s*(\d{4})Q(\d)\s*", value)
     if match is not None:
         # according to https://investinganswers.com/dictionary/q/quarter-q1-q2-q3-q4
+        # Not using these dates, for compatibility with other functions
         quarter_dates = {
-            1: (1, 31),
-            2: (4, 30),
-            3: (7, 30),
-            4: (12, 31),
+            1: (2, 1),
+            2: (5, 1),
+            3: (8, 1),
+            4: (1, 1),
         }
         return datetime.datetime(
             year = int(match.group(1)),
@@ -59,3 +60,5 @@ def print_unique_values(df, col=None):
             if key == "value":
                 print(preformatted_str.format("...etc"))
                 break
+
+

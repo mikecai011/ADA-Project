@@ -90,6 +90,7 @@ class ColumnFilteringRegressionModel(object):
         return self.base_model.fit(x, y)
 
     def predict(self, x):
+        x = x[self.columns]
         return self.base_model.predict(x)
 
     def score(self, x, y, sample_weight = None):
@@ -108,30 +109,51 @@ def test():
     #     [2,-4,9],
     #     [3,1,1]
     # ], index=['a', 'b', 'c', 'd', 'e', 'f'])
-    x = pd.DataFrame(np.random.random_sample((10000, 3))*5)
-    y = x.iloc[1:, 1]/3 + x.iloc[1:, 0]/2
+    x = pd.DataFrame(np.random.random_sample((10000, 5))*30-15)
+    y = x.iloc[1:, 0]/3 + x.iloc[1:, 1]/2 + x.iloc[1:, 2]/4
+    y = y.sample(frac=1)
     test_x = pd.DataFrame([
-        [1, 1, 0],
-        [2, 0, 9],
-        [3, 3, 0]
+        [1, 1, 0, 1, 2],
+        [2, 0, 9, 3, 1],
+        [3, 3, 0, 3, 3]
     ], index=['1', '2', '3'])
-    regressor = MLPRegressor(hidden_layer_sizes=(5, 4), activation='relu', solver='adam')
-    regressor = ColumnFilteringRegressionModel(regressor)
-    regressor = NormalizingRegressionModel(
-        regressor,
-        "scale"
-    )
-    regressor = SampleFilteringRegressionModel(regressor)
+
+    def create_model():
+        regressor = MLPRegressor(hidden_layer_sizes=(5, 4), activation='relu', solver='adam')
+        regressor = ColumnFilteringRegressionModel(regressor)
+        regressor = NormalizingRegressionModel(
+            regressor,
+            "scale"
+        )
+        regressor = SampleFilteringRegressionModel(regressor)
+        return regressor
+
+    regressor = create_model()
     regressor.fit(x, y)
     print(regressor.predict(test_x))
 
-    from feature_selection import get_features_by_score, FeatureScoringFunctions, ModelScoringFunctions
+    from feature_selection import get_features_by_score, forwards_recursive_feature_selection
+    from feature_selection import FeatureScoringFunctions, ModelScoringFunctions
+    print("Via permuatation:")
     fbs = get_features_by_score(
         regressor, x, y,
         FeatureScoringFunctions.get_permutation_score(ModelScoringFunctions.internal_score)
     )
     for fs in fbs:
         print(fs)
+
+    print("Via recursion:")
+    fbs = forwards_recursive_feature_selection(
+        create_model,
+        x,
+        y,
+        ModelScoringFunctions.internal_score,
+        stop_after=10,
+        minimize=False
+    )
+    for fs in fbs:
+        print(fs)
+
 
 if __name__ == "__main__":
     test()
