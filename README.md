@@ -14,6 +14,7 @@ Kiarash:
 * SARIMA Model cross validation and forecasting
 * Map visualisation
 * sociodemographic data exploration
+* determin how to put the visualization in the poster.
 
 Zhiqing:
 * Exploration of map plots
