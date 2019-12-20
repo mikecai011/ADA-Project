@@ -120,11 +120,11 @@ def test():
 
     def create_model():
         regressor = MLPRegressor(hidden_layer_sizes=(5, 4), activation='relu', solver='adam')
-        regressor = ColumnFilteringRegressionModel(regressor)
         regressor = NormalizingRegressionModel(
             regressor,
             "scale"
         )
+        regressor = ColumnFilteringRegressionModel(regressor)
         regressor = SampleFilteringRegressionModel(regressor)
         return regressor
 
