@@ -34,3 +34,8 @@ Chengzhong:
 * Will focus on displaying their section during presentation
 
 Michael:
+* Exploration in correlation between tourism activity and various aspects of the source/destination (PPP, GDP, Average Income, etc.)
+* Exploration and quality control on many data sources.
+* Early supervised clustering exploration in global tourism expenditure, receipt, inbound, and outbound.
+* Final PDF creation and formatting.
+* Gathering country features.
